@@ -1,14 +1,11 @@
 import { NextFunction, Request, Response } from "express";
 import { importCsvData } from "../../service/station/csv/parseCsv";
 
-import { removeFile } from "../../utilities/csv";
 import { getParsedCsvData } from "../../service/station/queryActions";
 
 export class StationCSVController {
   static async import(req: Request, res: Response) {
-    const [added, errors] = await importCsvData(req.file!).finally(() =>
-      removeFile(req.file!),
-    );
+    const [added, errors] = await importCsvData(req.file!);
 
     if (errors.length > 0) {
       res.status(200).json({
