@@ -1,16 +1,16 @@
-import "dotenv/config";
-import app from "./app";
-import { connectDatabase, runMigrations } from "../database/database";
+import 'dotenv/config'
+import app from './app'
+import { connectDatabase, runMigrations } from '../database/database'
 
-const PORT = Number(process.env.PORT) || 3000;
+const PORT = Number(process.env.PORT) || 3000
 
 async function bootstrap() {
-  await connectDatabase();
-  await runMigrations();
+	await connectDatabase()
+	await runMigrations()
 
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
+	app.listen(PORT, () => {
+		console.log(`Server running on http://localhost:${PORT}`)
+	})
 }
 
-bootstrap();
+bootstrap()

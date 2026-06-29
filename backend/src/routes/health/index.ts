@@ -1,13 +1,13 @@
-import { Router } from "express";
+import { Router } from 'express'
 
-const apiRouter = Router();
+const apiRouter = Router()
 
-apiRouter.get("/", (_req, res) => {
-  res.json({
-    message: "backend is healthy",
-    app: process.env.APP_VERSION,
-    node: process.version,
-  });
-});
+apiRouter.get('/', (_req, res) => {
+	res.json({
+		message: 'backend is healthy',
+		app: process.env.APP_VERSION,
+		node: process.version
+	})
+})
 
-export default apiRouter;
+export default apiRouter
