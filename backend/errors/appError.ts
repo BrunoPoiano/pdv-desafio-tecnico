@@ -1,32 +1,32 @@
 export class AppError extends Error {
-  constructor(
-    public status: number,
-    message: string,
-  ) {
-    super(message);
-  }
+	constructor(
+		public status: number,
+		message: string
+	) {
+		super(message)
+	}
 }
 
 export class ValidationError extends AppError {
-  constructor(message: string) {
-    super(400, message);
-  }
+	constructor(message: string) {
+		super(400, message)
+	}
 }
 
 export class QueryError extends AppError {
-  constructor(message: string) {
-    super(500, message);
-  }
+	constructor(message: string) {
+		super(500, message)
+	}
 }
 
 export class NotFoundError extends AppError {
-  constructor(message: string) {
-    super(404, message);
-  }
+	constructor(message: string) {
+		super(404, message)
+	}
 }
 
 export class ConflictError extends AppError {
-  constructor(message: string) {
-    super(409, message);
-  }
+	constructor(message: string) {
+		super(409, message)
+	}
 }
