@@ -7,13 +7,19 @@ export async function listStationResponsible() {
 
 	try {
 		const result = await client.query<StationResponsible>(`
-		select * from station_responsible
+		SELECT    station_responsible.*,
+              COUNT(s.id)           AS quantity_station
+    FROM      station_responsible
+    LEFT JOIN stations s ON s.responsible_person_id = station_responsible.id
+    GROUP BY  s.responsible_person_id,
+              station_responsible.id
+    ORDER BY  station_responsible.id
       `)
 
 		return result.rows
 	} catch (err) {
 		console.error(err)
-		throw new QueryError('Erro buscando responsaveis estacoes')
+		throw new QueryError('Erro buscando responsaveis')
 	} finally {
 		client.release()
 	}

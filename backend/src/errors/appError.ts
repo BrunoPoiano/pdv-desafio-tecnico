@@ -18,15 +18,3 @@ export class QueryError extends AppError {
 		super(500, message)
 	}
 }
-
-export class NotFoundError extends AppError {
-	constructor(message: string) {
-		super(404, message)
-	}
-}
-
-export class ConflictError extends AppError {
-	constructor(message: string) {
-		super(409, message)
-	}
-}

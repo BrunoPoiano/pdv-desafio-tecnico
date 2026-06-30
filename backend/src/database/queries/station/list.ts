@@ -27,6 +27,7 @@ LEFT JOIN fuels f ON sf.fuel_id = f.id
 GROUP BY  s.id,
           sr.name,
           sa.*
+ORDER BY s.id
       `)
 
 		return result.rows

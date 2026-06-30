@@ -4,12 +4,12 @@ import { removeFile } from '../../utilities/csv'
 
 export function CheckCsv(req: Request, res: Response, next: NextFunction) {
 	if (!req.file) {
-		return next(new ValidationError('A file is required'))
+		return next(new ValidationError('Arquivo não enviado'))
 	}
 
 	if (req.file.mimetype !== 'text/csv') {
 		removeFile(req.file)
-		return next(new ValidationError('File must be csv'))
+		return next(new ValidationError('Arquivo precisa ser csv'))
 	}
 
 	next()
