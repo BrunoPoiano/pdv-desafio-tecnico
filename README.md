@@ -1,8 +1,8 @@
-# Backend - pdv-desafio-tecnico
+# pdv desafio tecnico
 
 ## Descrição
 
-Este é o backend do projeto "pdv-desafio-tecnico", desenvolvido em TypeScript com Node.js e Vue.js. Ele fornece uma API para gerenciar informações de postos de combustíveis, incluindo importação e exportação de dados em formato CSV, além de integração com um banco de dados PostgreSQL.
+Desenvolvido em TypeScript com Node.js e Vue.js. Ele fornece uma API para gerenciar informações de postos de combustíveis, incluindo importação e exportação de dados em formato CSV, além de integração com um banco de dados PostgreSQL.
 
 ## Pré-requisitos
 
@@ -10,7 +10,9 @@ Este é o backend do projeto "pdv-desafio-tecnico", desenvolvido em TypeScript c
 - PostgreSQL
 - Docker (opcional, para execução em container)
 
-## Docker
+## Uso
+
+### Docker (recomendado)
 
 Para executar o app em um container Docker:
 
@@ -25,9 +27,9 @@ Para executar o app em um container Docker:
    docker compose up -d
    ```
 
-## Desenvolvimento
+### Desenvolvimento
 
-### Backend
+#### Backend
 
 1. Clone o repositório:
 
