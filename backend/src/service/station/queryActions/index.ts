@@ -10,3 +10,7 @@ export async function saveStationCsvData(csv: FixedStationCsvData[]) {
 export async function getParsedCsvData() {
 	return await getCsvJson()
 }
+
+export async function getListStations() {
+	return await listStations()
+}

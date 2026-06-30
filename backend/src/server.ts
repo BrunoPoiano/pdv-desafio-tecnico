@@ -1,8 +1,8 @@
 import 'dotenv/config'
 import app from './app'
-import { connectDatabase, runMigrations } from '../database/database'
+import { connectDatabase, runMigrations } from './database/database'
 
-const PORT = Number(process.env.PORT) || 3000
+const PORT = Number(process.env.APP_PORT) || 3000
 
 async function bootstrap() {
 	await connectDatabase()

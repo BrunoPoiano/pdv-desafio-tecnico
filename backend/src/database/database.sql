@@ -69,3 +69,21 @@ CREATE TABLE IF NOT EXISTS station_fuels (
     fuel_id INTEGER NOT NULL REFERENCES fuels(id),
     PRIMARY KEY (station_id, fuel_id)
 );
+
+CREATE INDEX IF NOT EXISTS idx_station_fuels_fuel
+ON station_fuels(fuel_id);
+
+CREATE INDEX IF NOT EXISTS idx_stations_address
+ON stations(address_id);
+
+CREATE INDEX IF NOT EXISTS idx_stations_responsible
+ON stations(responsible_person_id);
+
+CREATE INDEX IF NOT EXISTS idx_station_brand
+ON stations(brand);
+
+CREATE INDEX IF NOT EXISTS idx_station_status
+ON stations(status);
+
+CREATE INDEX IF NOT EXISTS idx_address_state_city
+ON station_address(state, city);

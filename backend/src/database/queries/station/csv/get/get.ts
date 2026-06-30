@@ -13,5 +13,7 @@ export async function getCsvJson() {
 	} catch (err) {
 		console.error(err)
 		throw new QueryError('Erro buscando data csv')
+	} finally {
+		client.release()
 	}
 }
