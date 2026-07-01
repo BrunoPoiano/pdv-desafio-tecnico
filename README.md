@@ -18,8 +18,10 @@ Desenvolvido em TypeScript com Node.js e Vue.js. App para gerenciar informaçõe
 #### Docker Compose (recomendado)
 
 Docker images:
-[frontend](https://hub.docker.com/r/brunopoiano/pdv-test-frontend)
+[frontend](https://hub.docker.com/r/brunopoiano/pdv-test-frontend) |
 [backend](https://hub.docker.com/r/brunopoiano/pdv-test-backend)
+
+1. Crie um arquivo docker-compose.yaml
 
 ```bash
 services:
@@ -65,8 +67,15 @@ services:
 
 volumes:
   postgres_data:
-
 ```
+
+2. Execute o container:
+   ```bash
+   docker compose up -d
+   ```
+
+Interface Web: `http://localhost:5150`.
+API: `http://localhost:3000`.
 
 #### Apartir do codigo fonte
 
@@ -74,7 +83,7 @@ volumes:
 
    ```bash
    git clone https://github.com/BrunoPoiano/pdv-desafio-tecnico.git
-   cd pdv-desafio-tecnico/backend
+   cd pdv-desafio-tecnico
    ```
 
 2. Construa a imagem Docker:
@@ -122,22 +131,17 @@ volumes:
 
 #### Frontend
 
-1. Clone o repositório:
+1. Instale as dependências:
 
    ```bash
    cd pdv-desafio-tecnico/frontend
-   ```
-
-2. Instale as dependências:
-
-   ```bash
    bun install
    ```
 
-3. Inicie o servidor:
+2. Inicie o servidor:
 
    ```bash
    bun dev
    ```
 
-4. Acesse a API em `http://localhost:5150`.
+3. Interface Web em `http://localhost:5150`.
