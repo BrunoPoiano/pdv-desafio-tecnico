@@ -1,10 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { defineAsyncComponent, ref } from 'vue'
 
-import { uploadCsv } from '@/services/Station/requests'
+import { getStationCsv, uploadCsv } from '@/services/Station/requests'
 import { useSignal } from '@/stores/signal'
 import type { InsertResponse } from '@/types'
+import { downloadFile } from '@/utilities/downloadFile'
 import { TryCatch } from '@/utilities/tryCatch'
+
+const ErrosDialog = defineAsyncComponent(
+	() => import('./components/errosDialog.vue')
+)
 
 const file = ref<File>()
 const response = ref<InsertResponse>()
@@ -31,9 +36,18 @@ async function handleUpload() {
 
 	alert(value.massage)
 }
+
+async function handleDownload() {
+	const response = await getStationCsv()
+	downloadFile(response.data)
+}
 </script>
 <template>
 	<div class="wrapper">
+		<v-btn color="teal-lighten-2" variant="tonal" @click="handleDownload">
+			Download CSV
+		</v-btn>
+
 		<v-file-input
 			v-model="file"
 			accept=".csv"
