@@ -1,9 +1,9 @@
+import { saveStationCsv } from '../../../database/queries/station/csv/insert'
 import {
 	FixedStationCsvData,
 	UploadStationCsv
 } from '../../../types/station/csv'
 import { readCsv } from '../../../utilities/csv'
-import { saveStationCsvData } from '../queryActions'
 import { IMPORT_BATH_SIZE } from './constants'
 import { fixCsvData } from './helper'
 
@@ -17,7 +17,7 @@ export async function importCsvData(file: Express.Multer.File) {
 		batchSize: IMPORT_BATH_SIZE,
 		parseFunction: (cvdata, bach) => fixCsvData(cvdata, bach, added, errors),
 		onBatch: async (batch) => {
-			await saveStationCsvData(batch)
+			await saveStationCsv(batch)
 		}
 	})
 
