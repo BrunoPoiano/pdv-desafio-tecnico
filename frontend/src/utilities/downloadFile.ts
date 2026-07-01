@@ -1,4 +1,9 @@
 export async function downloadFile(obj: Blob | MediaSource) {
+	if (obj instanceof Blob && obj.size == 0) {
+		alert('Arquivo vazio')
+		return
+	}
+
 	const url = URL.createObjectURL(obj)
 
 	const a = document.createElement('a')
