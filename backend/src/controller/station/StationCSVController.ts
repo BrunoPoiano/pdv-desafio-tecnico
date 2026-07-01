@@ -33,8 +33,6 @@ export class StationCSVController {
 
 		const streamedScv = await generateCsv()
 
-		streamedScv.pipe(res)
-
 		streamedScv.on('error', (err) => {
 			console.error('CSV export stream error:', err)
 			if (!res.headersSent) {
@@ -43,5 +41,7 @@ export class StationCSVController {
 				res.destroy(err)
 			}
 		})
+
+		streamedScv.pipe(res)
 	}
 }
