@@ -1,12 +1,12 @@
 services:
   frontend:
-    image: docker.io/brunopoiano/pdv-test-frontend
+    build: ./frontend
     ports:
       - "5150:80"
     depends_on: [backend]
 
   backend:
-    image: docker.io/brunopoiano/pdv-test-backend
+    build: ./backend
     container_name: backend
     ports:
       - "3000:3000"
