@@ -24,3 +24,5 @@ O que faria diferente se tivesse mais tempo.
 fazer verificação mais precisa de campos como:CPF CNPJ, CEP e UF
 testes para o parse do CSV e validação
 implementar logging mais preciso
+Adicionar paginacao nas tabelas
+loading na hora de fazer upload e download
